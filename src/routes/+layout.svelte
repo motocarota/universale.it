@@ -67,7 +67,7 @@
 			{#each contacts as c}
 				<a href={c.url} target="_blank">
 					<img
-						src="/src/lib/img/{c.icon}.webp"
+						src="/img/{c.icon}.webp"
 						alt="{c.title} icon"
 						width="33"
 						class="invert"

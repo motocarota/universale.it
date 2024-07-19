@@ -3,7 +3,7 @@
 </script>
 
 <img
-  src="/src/lib/img/21.webp"
+  src="/img/21.webp"
   alt="car!"
   class="rounded-lg"
   style="border-radius: 16px;"
@@ -17,7 +17,7 @@
         target="_blank"
         class="btn btn-ghost btn-block mx-auto flex justify-between align-baseline flex-nowrap"
       >
-        <img src="/src/lib/img/{c.icon}.webp" alt="{c.title} icon" width="33" />
+        <img src="/img/{c.icon}.webp" alt="{c.title} icon" width="33" />
         <p>
           {c.title}
         </p>

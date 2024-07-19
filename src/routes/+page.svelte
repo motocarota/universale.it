@@ -10,10 +10,7 @@
   ];
 </script>
 
-<div
-  class="hero min-h-screen"
-  style="background-image: url(/src/lib/img/27.webp);"
->
+<div class="hero min-h-screen" style="background-image: url(/img/27.webp);">
   <div class="hero-overlay"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="max-w-md text-white">
@@ -36,7 +33,7 @@
     <div class="card bg-base-100 w-96 shadow-xl h-96">
       <figure>
         <img
-          src="/src/lib/img/{c.img}.webp"
+          src="/img/{c.img}.webp"
           alt="car!"
           class="sepia hover:sepia-0 ease-in duration-300"
         />
