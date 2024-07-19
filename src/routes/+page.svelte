@@ -1,41 +1,59 @@
 <script>
-  let cards = [{ name: "ciao" }, { name: "miao" }, { name: "bao" }];
+  import Contacts from "../lib/Contacts.svelte";
+  import FullWidthImage from "../lib/FullWidthImage.svelte";
+
+  let cards = [
+    { title: "Pesce", desc: "Fresco appena pescato", img: 19 },
+    { title: "Trattoria", desc: "I piatti della tradizione ligure", img: 16 },
+    { title: "Pizzeria", desc: "Schiacciate e Focaccia al formaggio", img: 17 },
+    { title: "Giardino", desc: "Con pergolato interno", img: 18 },
+  ];
 </script>
 
 <div
   class="hero min-h-screen"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);"
+  style="background-image: url(/src/lib/img/27.webp);"
 >
-  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-        excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-        id nisi.
+    <div class="max-w-md text-white">
+      <h1 class="mb-5 text-6xl font-bold">Trattoria U Pescou</h1>
+      <p class="mb-5 text-xl font-bold">
+        Trattoria tipica genovese nel centro di Lavagna.<br />
+        Venite a provare i nostri numerosi piatti, ne abbiamo davvero per tutti i
+        gusti!
       </p>
-      <button class="btn btn-primary">Get Started</button>
+      <a class="btn btn-accent btn-wide" href="/menu">Guarda i Menu</a>
     </div>
   </div>
 </div>
 
-<div class="min-h-screen flex flex-wrap gap-1 p-11 mx-auto max-w-screen-lg">
+<div
+  id="servizi"
+  class="min-h-screen flex flex-wrap justify-center align-center gap-3 p-11 mx-auto max-w-screen-lg"
+>
   {#each cards as c}
     <div class="card bg-base-100 w-96 shadow-xl h-96">
       <figure>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          src="/src/lib/img/{c.img}.webp"
           alt="car!"
+          class="sepia hover:sepia-0 ease-in duration-300"
         />
       </figure>
       <div class="card-body">
-        <h2 class="card-title">{c.name}</h2>
-        <p>How to park your car at your garage?</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Learn now!</button>
-        </div>
+        <h2 class="card-title">{c.title}</h2>
+        <p>{c.desc}</p>
       </div>
     </div>
   {/each}
+</div>
+
+<FullWidthImage img="29" />
+
+<div
+  id="contatti"
+  class="grid lg:grid-cols-2 gap-3 p-11 mx-auto max-w-screen-lg"
+>
+  <Contacts />
 </div>
