@@ -56,7 +56,9 @@
 		<slot />
 	</div>
 
-	<footer class="footer bg-neutral text-neutral-content items-center p-4">
+	<footer
+		class="footer bg-neutral text-neutral-content items-center p-4 flex flex-col md:flex-row md:justify-between"
+	>
 		<aside class="grid-flow-col items-center">
 			<div>
 				<p>Trattoria U Pescou</p>
