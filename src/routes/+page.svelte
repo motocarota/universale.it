@@ -14,9 +14,9 @@
   <div class="hero-overlay"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="max-w-md text-white">
-      <h1 class="mb-5 text-6xl font-bold">Trattoria U Pescou</h1>
+      <h1 class="mb-5 text-6xl font-bold">Trattoria <br /> U Pescou</h1>
       <p class="mb-5 text-xl font-bold">
-        Trattoria tipica genovese nel centro di Lavagna.<br />
+        Cucina tipica genovese nel centro di Lavagna.<br />
         Venite a provare i nostri numerosi piatti, ne abbiamo davvero per tutti i
         gusti!
       </p>
