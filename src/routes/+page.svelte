@@ -46,7 +46,14 @@
   {/each}
 </div>
 
-<FullWidthImage img="29" />
+<div
+  class="min-h-64 min-w-screen bg-slate-300 mb-8 bg-cover text-center"
+  style="background-image: url(/img/29.webp);"
+>
+  <a href="/menu">
+    <h1 class="pt-24 text-5xl font-bold text-white">Consulta i nostri menu</h1>
+  </a>
+</div>
 
 <div
   id="contatti"
