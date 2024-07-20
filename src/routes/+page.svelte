@@ -1,6 +1,5 @@
 <script>
   import { contacts } from "../lib/contacts";
-  import FullWidthImage from "../lib/FullWidthImage.svelte";
 
   let cards = [
     { title: "Pesce", desc: "Fresco appena pescato", img: 19 },
@@ -10,17 +9,19 @@
   ];
 </script>
 
-<div class="hero min-h-screen" style="background-image: url(/img/27.webp);">
+<div class="hero min-h-screen" style="background-image: url(/img/1.webp);">
   <div class="hero-overlay"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="max-w-md text-white">
-      <h1 class="mb-5 text-6xl font-bold">Trattoria <br /> U Pescou</h1>
-      <p class="mb-5 text-xl font-bold">
+      <h1 class="mb-5 text-6xl font-bold drop-shadow-md">
+        Trattoria <br /> U Pescou
+      </h1>
+      <p class="mb-5 text-xl font-bold drop-shadow-md">
         Cucina tipica genovese nel centro di Lavagna.<br />
-        Venite a provare i nostri numerosi piatti, ne abbiamo davvero per tutti i
-        gusti!
       </p>
-      <a class="btn btn-accent btn-wide" href="/menu">Guarda i Menu</a>
+      <a class="btn btn-accent btn-wide drop-shadow-lg" href="/menu"
+        >Guarda i Menu</a
+      >
     </div>
   </div>
 </div>
@@ -47,12 +48,18 @@
 </div>
 
 <div
-  class="min-h-64 min-w-screen bg-slate-300 mb-8 bg-cover text-center"
+  class="min-h-64 min-w-screen bg-slate-300 mb-8 bg-cover text-center text-white"
   style="background-image: url(/img/29.webp);"
 >
   <a href="/menu">
-    <h1 class="pt-24 text-5xl font-bold text-white">Consulta i nostri menu</h1>
+    <h1 class="pt-24 text-5xl font-bold drop-shadow-md">
+      Consulta i nostri menu
+    </h1>
   </a>
+  <p class="mx-auto mt-5 text-xl font-bold drop-shadow-md">
+    Venite a provare i nostri numerosi piatti, ne abbiamo davvero per tutti i
+    gusti!
+  </p>
 </div>
 
 <div
