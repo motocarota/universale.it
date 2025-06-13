@@ -1,81 +1,98 @@
 <script>
-	import "../app.css";
-	import { contacts } from "../lib/contacts";
+import '../app.css';
+import Title from '$lib/Title.svelte';
+import Orario from '$lib/Orario.svelte';
+import Contatti from '$lib/Contatti.svelte';
+import Mappa from '$lib/Mappa.svelte';
 
-	const links = [
-		{ label: "Menu", url: "/menu" },
-		{ label: "Servizi", url: "#servizi" },
-		{ label: "Contatti", url: "#contatti" },
-	];
+let scrollY = 0;
+let navOpen = false;
+
+const links = [
+  { label: 'Home', url: '/' },
+  { label: 'Menu', url: '/menu' },
+  { label: 'Contatti', url: '#contatti' },
+];
+
+function toggleNav() {
+  navOpen = !navOpen;
+}
+
+function closeNav() {
+  navOpen = false;
+}
 </script>
 
-<div>
-	<div class="navbar bg-base-100 drop-shadow-lg">
-		<div class="navbar-start">
-			<div class="dropdown">
-				<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-5 w-5"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 6h16M4 12h8m-8 6h16"
-						/>
-					</svg>
-				</div>
-				<ul
-					class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-				>
-					{#each links as l}
-						<li>
-							<a href={l.url}>{l.label}</a>
-						</li>
-					{/each}
-				</ul>
-			</div>
-			<a class="btn btn-ghost text-xl" href="/">Trattoria U Pescou</a>
-		</div>
-		<div class="navbar-center"></div>
-		<div class="navbar-end hidden lg:flex">
-			<ul class="menu menu-horizontal px-1">
-				{#each links as l}
-					<li>
-						<a href={l.url}>{l.label}</a>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	</div>
-	<div class="min-h-80">
-		<slot />
-	</div>
+<div class="min-h-screen bg-gray-900">
+	<!-- Navigation -->
+	<nav
+	class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 {scrollY > 50 ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl border-b border-gray-700' : 'bg-transparent'}">
 
-	<footer
-		class="footer bg-neutral text-neutral-content items-center p-4 flex flex-col md:flex-row md:justify-between"
-	>
-		<aside class="grid-flow-col items-center">
-			<div>
-				<p>Trattoria U Pescou</p>
-				<p>Copyright © {new Date().getFullYear()} - All right reserved</p>
-			</div>
-		</aside>
-		<nav class="grid-flow-col gap-6 md:place-self-center md:justify-self-end">
-			{#each contacts as c}
-				<a href={c.url} target="_blank">
-					<img
-						src="/img/{c.icon}.webp"
-						alt="{c.title} icon"
-						width="33"
-						class="invert"
-					/>
+		<div class="max-w-7xl mx-auto px-4">
+			<div class="flex items-center justify-end h-20">
+				<!-- Logo -->
+				<a href="/" class="flex items-center space-x-3 group">
+					<div class="hidden sm:block">
+						<div class="text-2xl font-serif font-bold text-white">
+							Ristorante Universale Bistrot
+						</div>
+						<div class="text-sm" style="color: #a28468;">
+							Dal 1950
+						</div>
+					</div>
+					<div class="w-12 h-12 rounded-md flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300" style="background-color: #a28468;">
+						<span class="text-white font-serif text-xl font-bold">U</span>
+					</div>
 				</a>
-			{/each}
-		</nav>
+			</div>
+		</div>
+
+		<!-- Mobile Navigation -->
+		{#if navOpen}
+			<div class="lg:hidden absolute top-full left-0 right-0 bg-gray-900 shadow-2xl border-b border-gray-700">
+				<div class="px-4 py-6 space-y-4">
+					{#each links as link}
+						<a 
+							href={link.url}
+							on:click={closeNav}
+							class="block px-4 py-3 text-gray-300 rounded-lg transition-colors duration-300 font-medium"
+							onmouseenter="this.style.color='#a28468'; this.style.backgroundColor='rgb(31, 41, 55)'"
+							onmouseleave="this.style.color='rgb(209, 213, 219)'; this.style.backgroundColor='transparent'"
+						>
+							{link.label}
+						</a>
+					{/each}
+				</div>
+			</div>
+		{/if}
+	</nav>
+
+	<!-- Main Content -->
+	<main>
+		<slot />
+	</main>
+
+
+	<section class="bg-black text-gray-300">
+		<div class="max-w-7xl mx-auto px-4">
+			<Title
+				title="Vieni a Trovarci"
+				description="Ti aspettiamo nel nostro accogliente locale nel cuore di Lavagna"
+			/>
+
+			<Mappa />
+
+			<div class="grid lg:grid-cols-2 gap-16 items-center mt-12">
+				<Orario />
+				<Contatti />						
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-black text-gray-300 text-center py-12">
+		<p>
+			&copy; {new Date().getFullYear()} Ristorante Universale Bistrot. Tutti i diritti riservati.
+		</p>
 	</footer>
 </div>

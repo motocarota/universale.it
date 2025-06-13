@@ -1,108 +1,161 @@
 <script>
-  import { contacts } from "../lib/contacts";
+import Title from '$lib/Title.svelte';
 
-  let cards = [
-    { title: "Pesce", desc: "Fresco appena pescato", img: 19 },
-    { title: "Trattoria", desc: "I piatti della tradizione ligure", img: 16 },
-    { title: "Pizzeria", desc: "Schiacciate e Focaccia al formaggio", img: 17 },
-    { title: "Giardino", desc: "Con pergolato interno", img: 18 },
-  ];
+let scrollY = 0;
+let innerHeight = 0;
+
+let features = [
+  {
+    title: 'Pesce Fresco',
+    desc: 'Pescato ogni giorno nelle acque del Golfo del Tigullio',
+    img: 19,
+  },
+  {
+    title: 'Tradizione Ligure',
+    desc: 'Ricette autentiche tramandate di generazione in generazione',
+    img: 16,
+  },
+  {
+    title: 'Focaccia Genovese',
+    desc: 'Schiacciate e focaccia al formaggio preparate secondo tradizione',
+    img: 17,
+  },
+  {
+    title: 'Terrazza Panoramica',
+    desc: 'Cena sotto le stelle nel nostro incantevole giardino',
+    img: 18,
+  },
+];
 </script>
 
-<div class="hero min-h-screen" style="background-image: url(/img/1.webp);">
-  <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-md text-white">
-      <h1 class="mb-5 text-6xl font-bold drop-shadow-md">
-        Trattoria <br /> U Pescou
+<svelte:window bind:scrollY bind:innerHeight />
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+  <div 
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 ease-out"
+    style="background-image: url(/img/1.webp); transform: translateY({scrollY * 0.5}px)"
+  ></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+  
+  <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+    <div class="animate-fade-in-up">
+      <h1 class="text-5xl md:text-7xl font-light mb-6 tracking-wide">
+        <span class="block font-serif italic" style="color: #c5a68a;">Ristorante</span>
+        <span class="block text-6xl md:text-8xl font-bold bg-gradient-to-r text-transparent bg-clip-text" style="background-image: linear-gradient(to right, #a28468, #c5a68a);">
+          Universale Bistrot
+        </span>
       </h1>
-      <p class="mb-5 text-xl font-bold drop-shadow-md">
-        Cucina tipica genovese nel centro di Lavagna.<br />
+      <div class="h-px w-24 mx-auto mb-6" style="background-color: #a28468;"></div>
+      <p class="text-xl md:text-2xl font-light mb-8 leading-relaxed text-gray-200">
+        Autentici sapori liguri nel cuore di Lavagna<br>
+        <span class="text-lg" style="color: #c5a68a;">Dal 1950, una tradizione di famiglia</span>
       </p>
-      <a class="btn btn-accent btn-wide drop-shadow-lg" href="/menu"
-        >Guarda i Menu</a
+      <a 
+        href="/menu" 
+        class="inline-block text-white px-8 py-4 rounded-md text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+        style="background-color: #a28468;"
+        onmouseenter="this.style.backgroundColor='#8a6f56'"
+        onmouseleave="this.style.backgroundColor='#a28468'"
       >
+        Scopri i nostri Menu
+      </a>
     </div>
   </div>
-</div>
+  
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #a28468;">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
 
-<div
-  id="servizi"
-  class="min-h-screen flex flex-wrap justify-center align-center gap-3 p-11 mx-auto max-w-screen-lg"
->
-  {#each cards as c}
-    <div class="card bg-base-100 w-96 shadow-xl h-96">
-      <figure>
-        <img
-          src="/img/{c.img}.webp"
-          alt="car!"
-          class="sepia hover:sepia-0 ease-in duration-300"
-        />
-      </figure>
-      <div class="card-body">
-        <h2 class="card-title">{c.title}</h2>
-        <p>{c.desc}</p>
-      </div>
-    </div>
-  {/each}
-</div>
-
-<div
-  class="min-h-64 min-w-screen bg-slate-300 mb-8 bg-cover text-center text-white"
-  style="background-image: url(/img/29.webp);"
->
-  <a href="/menu">
-    <h1 class="pt-24 text-5xl font-bold drop-shadow-md">
-      Consulta i nostri menu
-    </h1>
-  </a>
-  <p class="mx-auto mt-5 text-xl font-bold drop-shadow-md">
-    Venite a provare i nostri numerosi piatti, ne abbiamo davvero per tutti i
-    gusti!
-  </p>
-</div>
-
-<div
-  id="contatti"
-  class="grid lg:grid-cols-2 gap-3 p-11 mx-auto max-w-screen-lg"
->
-  <img
-    src="/img/21.webp"
-    alt="car!"
-    class="rounded-lg"
-    style="border-radius: 16px;"
-  />
-  <div class="text-center gap-3">
-    <h2 class="text-3xl font-bold">Trattoria U Pescou</h2>
-    <div class="my-5">
-      {#each contacts as c}
-        <div class="my-4">
-          <a
-            href={c.url}
-            target="_blank"
-            class="btn btn-ghost btn-block mx-auto flex justify-between align-baseline flex-nowrap"
-          >
-            <img src="/img/{c.icon}.webp" alt="{c.title} icon" width="33" />
-            <p>
-              {c.title}
+<!-- Features Section -->
+<section id="servizi" class="py-20 bg-black">
+  <div class="max-w-7xl mx-auto px-4">
+    <Title
+      title="La Nostra Eccellenza"
+      description="Ogni piatto racconta una storia di passione, tradizione e qualità che si tramanda da generazioni"
+    />
+    
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+      {#each features as feature, index}
+        <div 
+          class="group bg-gray-900 rounded-lg shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 border border-gray-700"
+          style="animation-delay: {index * 100}ms"
+          onmouseenter="this.style.boxShadow='0 25px 50px -12px rgba(162, 132, 104, 0.2)'; this.style.borderColor='rgba(162, 132, 104, 0.5)'"
+          onmouseleave="this.style.boxShadow='0 25px 50px -12px rgba(0, 0, 0, 0.25)'; this.style.borderColor='rgb(55, 65, 81)'"
+        >
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src="/img/{feature.img}.webp"
+              alt={feature.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-serif text-white mb-3 group-hover:transition-colors duration-300" style="group-hover:color: #a28468;">
+              {feature.title}
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              {feature.desc}
             </p>
-            <p></p>
-          </a>
+          </div>
         </div>
       {/each}
     </div>
-    <div>
-      <iframe
-        title="map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4968.198095859176!2d9.342178691587371!3d44.30866864706193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4980d76f46cc1%3A0xdcd170aaf9f92bad!2sU%20Pescou!5e0!3m2!1sit!2sit!4v1721374997554!5m2!1sit!2sit"
-        width="300"
-        height="300"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        class="mx-auto my-4"
+  </div>
+</section>
+
+<!-- Menu CTA Section -->
+<section class="relative py-32 overflow-hidden bg-gray-900">
+  <div 
+    class="absolute inset-0 bg-cover bg-center bg-fixed opacity-30"
+    style="background-image: url(/img/29.webp);"
+  ></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/90"></div>
+  
+  <div class="relative z-10 text-center text-white px-4">
+    <div class="max-w-4xl mx-auto">
+      <Title
+        title="I Nostri Menu"
+        description="Scopri i sapori autentici della cucina ligure, dove ogni piatto è preparato con ingredienti freschi e ricette tramandate da generazioni"
       />
+      <a 
+        href="/menu"
+        class="inline-block bg-transparent border-2 text-lg font-medium transition-all duration-300 transform hover:scale-105 px-10 py-4 rounded-md"
+        style="border-color: #a28468; color: #a28468;"
+        onmouseenter="this.style.backgroundColor='#a28468'; this.style.color='#111827'"
+        onmouseleave="this.style.backgroundColor='transparent'; this.style.color='#a28468'"
+      >
+        Consulta i Menu
+      </a>
     </div>
   </div>
-</div>
+</section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-bounce {
+      animation: none;
+    }
+  }
+</style>

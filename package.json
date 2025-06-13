@@ -6,6 +6,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/kit": "^2",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
