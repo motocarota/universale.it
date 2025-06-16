@@ -228,5 +228,4 @@ const specialties = [
 </section>
 
 <!-- Anchor elements for navigation -->
-<div id="servizi"></div>
 <div id="contatti"></div>

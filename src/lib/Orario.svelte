@@ -2,7 +2,7 @@
 import { orario } from './orario';
 </script>
 
-<div class="bg-gray-900 rounded-lg p-6 border border-gray-700">
+<div class="p-6 border"  style="border-color: #a28468;">
   <h3 class="text-xl font-serif text-white mb-4">Orari di Apertura</h3>
   <div class="space-y-2 text-gray-300">
     {#each orario as o}
