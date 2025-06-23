@@ -28,7 +28,7 @@
     >
       <div class="relative h-64 overflow-hidden">
         <img
-          src="/img/{feature.img}.webp"
+          src="img/{feature.img}.webp"
           alt={feature.title}
           class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />

@@ -1,5 +1,5 @@
 <script>
-import { contacts } from '../lib/contacts';
+  import { contacts } from "../lib/contacts";
 </script>
 
 <div class="space-y-4">
@@ -14,7 +14,7 @@ import { contacts } from '../lib/contacts';
         class="w-12 h-12 rounded-md flex items-center justify-center mr-4 transition-colors duration-300"
       >
         <img
-          src="/img/{contact.icon}.webp"
+          src="img/{contact.icon}.webp"
           alt="{contact.title} icon"
           class="w-6 h-6 invert group-hover:invert-0"
         />

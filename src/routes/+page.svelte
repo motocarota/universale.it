@@ -13,7 +13,7 @@ let innerHeight = 0;
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
   <div 
     class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 ease-out"
-    style="background-image: url(/img/wide.webp); transform: translateY({scrollY * 0.5}px)"
+    style="background-image: url(img/wide.webp); transform: translateY({scrollY * 0.5}px)"
   ></div>
   <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
   

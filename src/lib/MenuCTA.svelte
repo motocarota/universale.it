@@ -1,9 +1,8 @@
-
 <!-- Menu CTA Section -->
 <!-- <section class="relative py-32 overflow-hidden bg-gray-900">
   <div 
     class="absolute inset-0 bg-cover bg-center bg-fixed opacity-30"
-    style="background-image: url(/img/29.webp);"
+    style="background-image: url(img/29.webp);"
   ></div>
   <div class="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-gray-900/90"></div>
   
