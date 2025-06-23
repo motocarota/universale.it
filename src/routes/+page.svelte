@@ -1,7 +1,24 @@
 <script>
 import Title from '$lib/Title.svelte';
-import Features from '$lib/Features.svelte';
 import MenuCTA from '$lib/MenuCTA.svelte';
+const features = [
+  {
+    title: "Pesce Fresco",
+    desc: "Pescato ogni giorno nelle acque del Golfo del Tigullio",
+    img: 1,
+  },
+  {
+    title: "Atmosfera unica",
+    desc: "Un ambiente accogliente ed elegante per un'esperienza indimenticabile",
+    img: 9,
+  },
+  {
+    title: "Piatti autentici",
+    desc: "Ricette autentiche tramandate di generazione in generazione",
+    img: 5,
+  },
+];
+
 
 let scrollY = 0;
 let innerHeight = 0;
@@ -45,14 +62,48 @@ let innerHeight = 0;
 </section>
 
 <!-- Features Section -->
-<section id="servizi" class="py-20 bg-black">
+<section id="servizi" class="py-20 bg-black text-center">
   <div class="max-w-7xl mx-auto px-4">
-    <Title
-      title="La Nostra Eccellenza"
-      description="Ogni piatto racconta una storia di passione, tradizione e qualità che si tramanda da generazioni"
-    />
+    <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto py-20">
+      <h1 class="text-4xl md:text-6xl font-serif mb-6">
+        La Nostra Eccellenza
+      </h1>
+      <div class="h-px w-24 mx-auto mb-6" style="background-color: #a28468;"></div>
+      <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-200">
+        Ogni piatto racconta una storia di passione, tradizione e qualità che si tramanda da generazioni
+      </p>
+    </div>
     
-    <Features />
+    <div class="flex flex-wrap gap-8 justify-center">
+      {#each features as feature, index}
+        <div
+          class="group rounded-lg shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 md:w-1/3"
+          style="animation-delay: {index * 100}ms"
+          onmouseenter="this.style.boxShadow='0 25px 50px -12px rgba(162, 132, 104, 0.2)'; this.style.borderColor='rgba(162, 132, 104, 0.5)'"
+          onmouseleave="this.style.boxShadow='0 25px 50px -12px rgba(0, 0, 0, 0.25)'; this.style.borderColor='rgb(55, 65, 81)'"
+        >
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src="img/{feature.img}.webp"
+              alt={feature.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0"></div>
+          </div>
+          <div class="p-6">
+            <h2
+              class="text-xl text-white mb-3 group-hover:transition-colors duration-300"
+            >
+              {feature.title}
+            </h2>
+            <p class="text-gray-400 leading-relaxed">
+              {feature.desc}
+            </p>
+          </div>
+        </div>
+      {/each}
+    </div>
+    
   </div>
 </section>
 
