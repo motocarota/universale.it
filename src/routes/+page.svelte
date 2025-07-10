@@ -45,7 +45,7 @@ let innerHeight = 0;
       <div class="h-px w-24 mx-auto mb-6" style="background-color: #a28468;"></div>
       <p class="text-xl md:text-2xl font-light mb-8 leading-relaxed text-gray-200">
         Autentici sapori liguri nel cuore di Lavagna<br>
-        <span class="text-lg" style="color: #c5a68a;">Dal 1950, una tradizione di famiglia</span>
+        <span class="text-lg" style="color: #c5a68a;">locale storico, nuova getione</span>
       </p>
       <a 
         href="#contatti" 
