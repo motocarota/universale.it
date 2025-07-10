@@ -8,7 +8,7 @@ const features = [
     img: 1,
   },
   {
-    title: "Atmosfera unica",
+    title: "Atmosfera romantica",
     desc: "Un ambiente accogliente ed elegante per un'esperienza indimenticabile",
     img: 9,
   },
