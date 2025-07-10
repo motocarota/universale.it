@@ -15,7 +15,7 @@ const features = [
   {
     title: "Piatti autentici",
     desc: "Ricette autentiche tramandate di generazione in generazione",
-    img: 5,
+    img: 12,
   },
 ];
 
