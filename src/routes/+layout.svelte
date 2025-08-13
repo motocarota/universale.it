@@ -29,7 +29,7 @@ import Mappa from '$lib/Mappa.svelte';
 					</div>
 					<h3 class="text-xl font-serif text-white mb-3">Orari Cucina</h3>
 					<div class="text-gray-300 space-y-1">
-						<div class="font-medium" style="color: #a28468;">da Mercoledì a Domenica sera:</div>
+						<div class="font-medium" style="color: #a28468;">da Mercoledì a Domenica:</div>
 						<div>19:00 - 22:00</div>
 						<div class="font-medium" style="color: #a28468;">Lunedì e Martedì:</div>
 						<div>Chiuso</div>
